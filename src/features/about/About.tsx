@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import { Box, List, ListItem, Typography } from "@mui/material";
 
 export const AboutContainer = styled(Box)(() => ({
-  maxWidth: "900px",
+  maxWidth: "1000px",
   width: "100%",
   display: "flex",
   flexDirection: "column",

@@ -7,6 +7,11 @@ export const defaultTheme = createTheme({
       fontWeight: 700,
       lineHeight: 1.4,
     },
+    h2: {
+      fontSize: 20,
+      fontWeight: 700,
+      lineHeight: 1.4,
+    },
   },
   components: {
     MuiButton: {

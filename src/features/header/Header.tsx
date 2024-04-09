@@ -5,7 +5,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Box, IconButton } from "@mui/material";
 
 const HeaderContainer = styled(Box)(() => ({
-  maxWidth: "900px",
+  maxWidth: "1000px",
   width: "100%",
   display: "flex",
   justifyContent: "space-between",

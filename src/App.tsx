@@ -53,9 +53,9 @@ const App = () => {
       });
   };
 
-  useEffect(() => {
-    getAuth(apiUrlTest, requestOptions);
-  }, []);
+  // useEffect(() => {
+  //   getAuth(apiUrlTest, requestOptions);
+  // }, []);
 
   return (
     <PageContainer>
