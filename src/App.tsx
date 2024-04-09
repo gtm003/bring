@@ -1,73 +1,69 @@
-import { useState } from "react";
-import bringLogo from "./assets/bring_logo.jpeg";
 import "./App.css";
 import { styled } from "@mui/material/styles";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { Box, IconButton } from "@mui/material";
+import { Box } from "@mui/material";
+import Calculator from "./features/calculator/Calculator";
+import Header from "./features/header/Header";
+import About from "./features/about/About";
+import { useEffect } from "react";
 
 export const PageContainer = styled(Box)(() => ({
+  maxWidth: "1200px",
   display: "flex",
-  flexDirection: 'column',
+  flexDirection: "column",
   justifyContent: "space-between",
-  height: 90,
+  alignItems: "center",
 }));
 
-export const Header = styled(Box)(() => ({
-  display: "flex",
-  justifyContent: "space-between",
-  height: 90,
-}));
+const App = () => {
+  const apiUrlTest =
+    "https://api.edu.cdek.ru/v2/oauth/token?parameters&grant_type=client_credentials&client_id=EMscd6r9JnFiQ3bLoyjJY6eM78JrJceI&client_secret=PjLZkKBHEiLK3YsjtNrt3TGNG0ahs3kG";
+  const apiUrl =
+    "https://api.cdek.ru/v2/oauth/token?grant_type=client_credentials&client_id=ExqN4flE9vIOiCpsNYDC10fIarbWw40F&client_secret=iXm0DJ0f9Qt6iQjaIv2W4UKHNxc7qVcQ";
 
+  const requestOptions = {
+    method: "POST",
+    mode: "no-cors" as RequestMode,
+    
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      'Accept': "application/json",
+      'json': 'true',
+      // 'Access-Control-Allow-Origin':'true',
+    },
+    // body: JSON.stringify(body),
+  };
 
-export const LinksContainer = styled(Box)(() => ({
-  display: "flex",
-  justifyContent: "space-between",
-  height: 90,
-  gap: 8,
-}));
+  const getAuth = (apiUrlTest: string, requestOptions: RequestInit) => {
+    // Make a GET request
+    fetch(encodeURI(apiUrlTest), requestOptions)
+      .then((response) => {
+        // if (!response.ok) {
+        //   console.log(response);
+        //   console.log(response.json());
+        // }
+        console.log(response.body);
+        return response.body;
+      })
+      .then((data) => {
+        console.log(data);
+        // console.log(data.access_token);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
+  };
 
-export const LinkIcon = styled(IconButton)(() => ({
-  border: '1px solid grey',
-  width: 42,
-  height: 42,
-  
-  borderRadius: '50%'
-}));
-
-function App() {
-  const [count, setCount] = useState(0);
+  useEffect(() => {
+    getAuth(apiUrlTest, requestOptions);
+  }, []);
 
   return (
     <PageContainer>
-      <Header>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={bringLogo} alt="bring logo" width={170} height={35.31} />
-        </a>
-        <LinksContainer>
-          <LinkIcon>
-            <TelegramIcon style={{color: 'black'}}/>
-          </LinkIcon>
-          <LinkIcon>
-            <WhatsAppIcon style={{color: 'black'}}/>
-          </LinkIcon>
-        </LinksContainer>
-      </Header>
-      <h1>Логистическая компания Бринг</h1>
-      <h1>На рынке с 2020 года</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <About />
+      <Calculator />
     </PageContainer>
   );
-}
+};
 
 export default App;
