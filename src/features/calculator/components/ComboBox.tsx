@@ -34,11 +34,11 @@ const ComboBox: React.FC<ComboBoxProps> = ({
       //disabled
       disabled={disabled}
       value={value}
-      onChange={(event: any, newValue: string | null) => {
+      onChange={(_event: any, newValue: string | null) => {
         onChangeComboBox(newValue);
       }}
       inputValue={inputValue}
-      onInputChange={(event, newInputValue) => setInputValue(newInputValue)}
+      onInputChange={(_event, newInputValue) => setInputValue(newInputValue)}
       disablePortal
       id="combo-box-demo"
       options={data.map((item) => item.label)}

@@ -29,10 +29,15 @@ const Container = styled(Paper)(() => ({
   textAlign: "start",
 }));
 
-type DeliveryType = "marketplace" | "common";
+// type DeliveryType = "marketplace" | "common";
 const NON_NUMERIC_CHARTERS = /[a-zA-Z.,/]/g;
 const removeNonNumericCharters = (value: string) =>
   value.replace(NON_NUMERIC_CHARTERS, "");
+
+interface PriceProps  {
+  express: number;
+  nonExpress: number;
+}
 
 const getPrice = (
   deliveryType: string,
@@ -70,7 +75,7 @@ function Calculator() {
   const [lenght, setLenght] = useState<string | null>(null);
   const [isValid, setIsValid] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
-  const [price, setPrice] = useState({});
+  const [price, setPrice] = useState<PriceProps>({express: 0, nonExpress: 0});
 
   const handleTypeDeliveryChange = (
     event: React.ChangeEvent<HTMLInputElement>
