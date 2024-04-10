@@ -159,7 +159,7 @@ function Calculator() {
           <FormControlLabel
             value="marketplace"
             control={<Radio />}
-            label="интернет-магазин"
+            label="маркетплейс"
           />
           <FormControlLabel
             value="common"
