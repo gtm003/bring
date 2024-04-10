@@ -1,4 +1,4 @@
-import bringLogo from "../../assets/bring_logo.jpeg";
+import bringLogo from "../../assets/bring_logo.svg";
 import { styled } from "@mui/material/styles";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -27,11 +27,10 @@ const LinkIcon = styled(IconButton)(() => ({
 }));
 
 const Header = () => {
-
   return (
     <HeaderContainer>
-      <a href="https://vitejs.dev" target="_blank">
-        <img src={bringLogo} alt="bring logo" width={170} height={35.31} />
+      <a href="https://home.courierexe.ru/337/tracking" target="_blank">
+        <img src={bringLogo} alt="bring logo" />
       </a>
       <LinksContainer>
         <LinkIcon>

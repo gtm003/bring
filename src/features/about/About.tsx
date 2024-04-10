@@ -8,6 +8,7 @@ export const AboutContainer = styled(Box)(() => ({
   flexDirection: "column",
   justifyContent: "space-between",
   alignItems: "center",
+  marginTop: 32,
 }));
 
 const About = () => {
